@@ -20,6 +20,7 @@ group :development, :test do
     gem 'rspec-rails'
     gem 'nyan-cat-formatter'
     gem 'rails-controller-testing'
+    gem 'shoulda'
 end
 
 # Use SCSS for stylesheets
