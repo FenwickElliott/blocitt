@@ -26,4 +26,19 @@ module RandomData
     letters.shuffle!
     letters[0,rand(3..8)].join
   end
+
+  def self.nAme
+      nAme = []
+      l = ('a'..'z').to_a
+      lu = ('A'..'Z').to_a
+      letters = l+lu
+      letters.shuffle!
+      for i in 0..rand(0..2)
+          letters.shuffle!
+          nAme[i] = letters[0,rand(3..8)].join
+          nAme[i].downcase!
+          nAme[i].capitalize!
+      end
+      nAme.join(' ')
+  end
 end

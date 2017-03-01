@@ -34,4 +34,24 @@ RSpec.describe User, type: :model do
             expect(invalid_email).to_not be_valid
         end
     end
+
+    describe 'name format' do
+        let(:unformatted_name) {User.new(name: RandomData.nAme)}
+        puts :unformatted_name
+
+        # let(:unformatted_name) {User.new(name: 'Charles Fenwick')}
+
+        it 'should contain capitals' do
+            expect(unformatted_name.name).to match(/[A-Z]/)
+        end
+        it 'first name should start with a capital' do
+            expect(unformatted_name.name).to match(/(^)[A-Z]/)
+        end
+        it 'all other names should stat with a capital' do
+            expect(unformatted_name.name).to_not match(/(\S)[A-Z]/)
+        end
+        it 'all other charactors should be lower case' do
+            expect(unformatted_name.name).to_not match(/(\w)[A-Z]/)
+        end
+    end
 end
