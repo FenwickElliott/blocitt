@@ -49,19 +49,17 @@ RSpec.describe UsersController, type: :controller do
             expect(assigns(:user).password_confirmation).to eq new_user_attributes[:password_confirmation]
         end
 
-        it "logs the user in after sign up" do
-            post :create, user: new_user_attributes
-            expect(session[:user_id]).to eq assigns(:user).id
-        end
-
-        # props = ['name', 'email', 'password', 'password_confirmation']
-        #
-        # props.each do |i|
+        # ['name', 'email', 'password', 'password_confirmation'].each do |i|
         #     it "sets #{i} properly" do
         #         puts :user
         #         post :create, user: new_user_attributes
         #         expect(assigns(:user).name).to eq new_user_attributes[:name]
         #     end
         # end
+
+        it "logs the user in after sign up" do
+            post :create, user: new_user_attributes
+            expect(session[:user_id]).to eq assigns(:user).id
+        end
     end
 end

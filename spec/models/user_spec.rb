@@ -3,9 +3,9 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
     let(:user) {User.create!(name: 'Charles', email: 'charles@bloc.io', password: 'psswrd')}
 
+    # Shoulda tests
     it { is_expected.to have_many(:posts)}
 
-    # Shoulda tests
     it { is_expected.to validate_presence_of(:name)}
     it { is_expected.to validate_length_of(:name).is_at_least(1)}
 
@@ -40,8 +40,6 @@ RSpec.describe User, type: :model do
     describe 'name format' do
         let(:unformatted_name) {User.new(name: RandomData.nAme)}
         puts :unformatted_name
-
-        # let(:unformatted_name) {User.new(name: 'Charles Fenwick')}
 
         it 'should contain capitals' do
             expect(unformatted_name.name).to match(/[A-Z]/)
