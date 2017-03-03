@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
     let (:new_user_attributes) do
         {
-            name: 'BlocHead',
+            name: 'Blochead',
             email: 'blochead@bloc.io',
             password: 'blochead',
             password_confirmation: 'blochead'
@@ -24,7 +24,7 @@ RSpec.describe UsersController, type: :controller do
     describe 'POST create' do
         it 'returns an http redirect' do
             post :create, user: new_user_attributes
-            expect(response).to have_http_status(:success)
+            expect(response).to have_http_status(:redirect)
         end
         it 'creates a new user' do
             expect{

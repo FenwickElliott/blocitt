@@ -55,6 +55,6 @@ before_action :requre_sign_in, expect: :show
     private
 
     def post_params
-        params.requre(:post).permit(:title, :body)
+        params.require(:post).permit(:title, :body)
     end
 end
