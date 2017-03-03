@@ -30,7 +30,9 @@ before_action :require_sign_in, except: :show
 
     def update
         @post = Post.find(params[:id])
-        @post.assign_attributes(post_params)
+        # @post.assign_attributes(post_params)
+        @post.title = params[:post][:title]
+        @post.body = params[:post][:body]
         if @post.save
             flash[:notice] = "Post was updated."
             redirect_to [@post.topic, @post]

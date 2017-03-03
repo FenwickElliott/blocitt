@@ -18,6 +18,7 @@ class TopicsController < ApplicationController
         # @topic.public = params[:topic][:public]
 
         @topic = Topic.new(topic_params)
+        # @topic.user = current_user
 
         if @topic.save
             redirect_to @topic, notice: "Topic was saved successfully."
@@ -32,7 +33,7 @@ class TopicsController < ApplicationController
     end
 
     def update
-        # @topic = Topic.find(params[:id])
+        @topic = Topic.find(params[:id])
         # @topic.name = params[:topic][:name]
         # @topic.description = params[:topic][:description]
         # @topic.public = params[:topic][:public]
