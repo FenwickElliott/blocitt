@@ -24,19 +24,19 @@ RSpec.describe PostsController, type: :controller do
             end
         end
 
-        describe "GET new" do
-            it "returns http redirect" do
-                get :new, topic_id: my_topic.id
-                expect(response).to redirect_to(new_session_path)
-            end
-        end
+        # describe "GET new" do
+        #     it "returns http redirect" do
+        #         get :new, topic_id: my_topic.id
+        #         expect(response).to redirect_to(new_session_path)
+        #     end
+        # end
 
-        describe "POST create" do
-            it "returns http redirect" do
-                post :create, topic_id: my_topic.id, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
-                expect(response).to redirect_to(new_session_path)
-            end
-        end
+        # describe "POST create" do
+        #     it "returns http redirect" do
+        #         post :create, topic_id: my_topic.id, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
+        #         expect(response).to redirect_to(new_session_path)
+        #     end
+        # end
 
         describe "GET edit" do
             it "returns http redirect" do
