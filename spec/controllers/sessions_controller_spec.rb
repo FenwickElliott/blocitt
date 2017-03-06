@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe SessionsController, type: :controller do
-    
+
     let(:my_user) { User.create!(name: "Blochead", email: "blochead@bloc.io", password: "password") }
 
     describe "GET new" do
@@ -12,6 +12,15 @@ RSpec.describe SessionsController, type: :controller do
     end
 
     describe "POST sessions" do
+
+        # before do
+        #   my_user = User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld", role: :member)
+        #   create_session(user)
+        # end
+
+        puts "User"
+        puts :my_user
+
         it "returns http success" do
             post :create, session: {email: my_user.email}
             expect(response).to have_http_status(:success)

@@ -37,8 +37,8 @@ end
 user = User.first
 user.update_attributes!(
     name: 'Charles',
-    email: 'charles@FenwickElliott.io',
-    password: 'helloworld'
+    email: 'charles@bloc.io',
+    password: '123456'
     )
 
 admin = User.create!(

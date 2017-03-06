@@ -23,6 +23,6 @@ class User < ApplicationRecord
         end
     end
 
-    enum role: [:member, :admin]
+    enum role: [:member, :moderator, :admin]
 
 end
