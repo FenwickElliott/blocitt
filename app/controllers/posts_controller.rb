@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
 before_action :require_sign_in, except: :show
-before_action :authorise_user, except: [:show, :new, :create]
+before_action :auth_mod, except: [:show, :new, :create]
+before_action :authorise_user, except: [:show, :new, :create, :update, :edit]
 
     def show
         @post = Post.find(params[:id])
@@ -65,6 +66,14 @@ before_action :authorise_user, except: [:show, :new, :create]
         post = Post.find(params[:id])
         unless current_user == post.user || current_user.admin?
             flash[:alert] = "Permission denied"
+            redirect_to [post.topic, post]
+        end
+    end
+
+    def auth_mod
+        post = Post.find(params[:id])
+        unless current_user == post.user || current_user.moderator? || current_user.admin?
+            flash[:alert] = "You must be a moderator or admin (post_cont)"
             redirect_to [post.topic, post]
         end
     end
