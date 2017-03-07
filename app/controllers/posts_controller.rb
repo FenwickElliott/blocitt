@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
 before_action :require_sign_in, except: :show
 before_action :require_sign_in, except: [:show, :new, :create]
+# after_create :create_vote
 
     def show
         @post = Post.find(params[:id])
@@ -18,6 +19,7 @@ before_action :require_sign_in, except: [:show, :new, :create]
         @post.user = current_user
         if @post.save
             flash[:notice] = "Post was saved."
+            @post.votes.create(value: 1, user: @post.user)
             redirect_to [@topic, @post]
         else
             flash.now[:alert] = "There was an error saving the post. Please try again."
@@ -68,4 +70,8 @@ before_action :require_sign_in, except: [:show, :new, :create]
             redirect_to [post.topic, post]
         end
     end
+
+    # def create_vote
+    #     user.votes.create(value: 1, post:self)
+    # end
 end
