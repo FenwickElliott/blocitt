@@ -3,13 +3,11 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.1'
 
-# #1
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
 
-# #2
 group :development do
   gem 'sqlite3'
   gem 'listen'
@@ -36,3 +34,4 @@ gem 'turbolinks'
 gem 'bootstrap-sass'
 gem 'bcrypt'
 gem 'figaro', '1.0'
+gem 'factory_girl_rails'
