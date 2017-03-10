@@ -19,15 +19,15 @@
   </div>
 </div>
 
-<% if has_posts %>
+<% if has_posts? %>
     <h2>Posts</h2>
     <%= render @user.posts %>
 <% else %>
     <h2><%= "#{@user.name} doesn't have any posts yet"%></h2>
 <% end %>
 
-<% if has_comments %>
-    <h2>Posts</h2>
+<% if has_comments? %>
+    <h2>Comments</h2>
     <%= render @user.comments %>
 <% else %>
     <h2><%= "#{@user.name} doesn't have any comments yet"%></h2>
