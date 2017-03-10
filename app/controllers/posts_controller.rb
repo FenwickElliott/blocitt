@@ -68,4 +68,5 @@ before_action :require_sign_in, except: [:show, :new, :create]
             redirect_to [post.topic, post]
         end
     end
+
 end
